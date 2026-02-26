@@ -60,29 +60,35 @@
 
 <body>
 
-    <!-- Navegação -->
-    <nav class="fixed w-full z-50 bg-[#1a1210]/95 backdrop-blur-md border-b border-[#c5a075]/20 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- LOGO (Tamanho maior como solicitado) -->
-            <a href="#home" class="flex items-center">
-                <img src="https://jiwi7dev.com.br/611265586_18330682219300901_5070416134192051678_n%20(1).webp"
-                    alt="MIT TATTOO" class="h-16 md:h-20 w-auto transition-transform hover:scale-105">
-            </a>
+gi
+   <nav class="fixed w-full z-50 bg-[#1a1210]/95 backdrop-blur-md border-b border-[#c5a075]/20 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-col items-center md:flex-row md:justify-between">
 
-            <div class="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.3em] font-semibold">
-                <a href="#home" class="hover:gold-text transition">Início</a>
-                <a href="#estudio" class="hover:gold-text transition">Onde nos encontrar</a>
-                <a href="#portfolio" class="hover:gold-text transition">Galeria</a>
-            </div>
 
-            <a href="https://wa.me/message/PKA655DIOR7IC1" target="_blank"
-                class="gold-border gold-text px-6 py-2 text-[10px] uppercase tracking-widest hover:bg-[#c5a075] hover:text-black transition-all duration-500">
-                Orçamento
-            </a>
+        <a href="#home" class="mb-4 md:mb-0">
+            <img src="https://jiwi7dev.com.br/611265586_18330682219300901_5070416134192051678_n%20(1).webp"
+                 alt="MIT TATTOO"
+                 class="h-14 md:h-20 w-auto transition-transform hover:scale-105">
+        </a>
+
+
+        <div class="flex gap-6 text-[10px] uppercase tracking-[0.3em] font-semibold text-center">
+            <a href="#home" class="hover:gold-text transition">Início</a>
+            <a href="#estudio" class="hover:gold-text transition">Onde nos encontrar</a>
+            <a href="#portfolio" class="hover:gold-text transition">Galeria</a>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
+
+        <a href="https://wa.me/message/PKA655DIOR7IC1"
+           target="_blank"
+           class="hidden md:inline-flex gold-border gold-text px-6 py-2 text-[10px] uppercase tracking-widest hover:bg-[#c5a075] hover:text-black transition-all duration-500">
+           Orçamento
+        </a>
+
+    </div>
+</nav>
+
+
     <section id="home" class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
         <div class="absolute inset-0 hero-glow z-0"></div>
 
@@ -99,11 +105,11 @@
         </div>
     </section>
 
-    <!-- O Estúdio / Sobre -->
+  
     <section id="estudio" class="py-32 px-6 max-w-6xl mx-auto">
         <div class="grid md:grid-cols-2 gap-20 items-center">
 
-            <!-- COLUNA DAS FOTOS -->
+
             <div class="relative">
                 <div class="grid grid-cols-2 gap-2">
 
@@ -116,7 +122,7 @@
                 </div>
             </div>
 
-            <!-- COLUNA DO TEXTO -->
+
             <div>
                 <span class="gold-text text-xs uppercase tracking-[0.4em] block mb-4">
                     Localização
@@ -166,22 +172,22 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Foto 1 -->
+
                 <div class="relative aspect-square overflow-hidden group bg-zinc-900">
                     <img src="https://jiwi7dev.com.br/zoreia.webp"
                         class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
                 </div>
-                <!-- Foto 2 -->
+
                 <div class="relative aspect-square overflow-hidden group bg-zinc-900">
                     <img src="https://jiwi7dev.com.br/IMG-8192.webp"
                         class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
                 </div>
-                <!-- Foto 3 -->
+
                 <div class="relative aspect-square overflow-hidden group bg-zinc-900">
                     <img src="https://jiwi7dev.com.br/IMG-9665.webp"
                         class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
                 </div>
-                <!-- Foto 4 -->
+
                 <div class="relative aspect-square overflow-hidden group bg-zinc-900">
                     <img src="https://jiwi7dev.com.br/tattoo-charlie.webp"
                         class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
@@ -190,7 +196,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
     <footer class="py-20 border-t border-[#c5a075]/10 text-center px-6">
         <img src="https://jiwi7dev.com.br/logo%20baixo.webp" alt="MIT TATTOO" class="h-16 mx-auto mb-8 opacity-50">
 
@@ -206,7 +212,7 @@
 
             <div class="flex flex-col items-center pt-6">
 
-                <!-- ÍCONES -->
+
                 <div class="flex gap-8 items-center">
 
                     <a href="https://www.instagram.com/mit.tattoo" target="_blank"
@@ -224,8 +230,6 @@
                     </svg>
 
                 </div>
-
-                <!-- TEXTO -->
                 <p class="text-xs text-zinc-400 leading-relaxed text-center mt-4">
                     Seg - Sex: 10h às 20h <br>
                     Sáb: 09h às 17h
@@ -239,7 +243,7 @@
             </p>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante Personalizado -->
+
     <a href="https://wa.me/message/PKA655DIOR7IC1" target="_blank"
         class="fixed bottom-8 right-8 gold-bg text-black p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
