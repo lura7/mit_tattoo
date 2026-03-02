@@ -123,14 +123,25 @@
             <div class="grid grid-cols-2 gap-2">
                 <img id="slideA"
                      src="https://jiwi7dev.com.br/parede-loca-2.webp"
-                     class="w-full transition duration-700"
+                     class="w-full transition duration-700 opacity-100"
                      alt="Studio 1">
 
                 <img id="slideB"
                      src="https://jiwi7dev.com.br/pintura%20foda.jpg"
-                     class="w-full transition duration-700 mt-8"
+                     class="w-full transition duration-700 opacity-100 mt-8"
                      alt="Studio 2">
             </div>
+
+    
+                    <button aria-label="Anterior" id="prevBtn"
+                        class="absolute left-3 md:-left-12 top-1/2 -translate-y-1/2 z-30 gold-bg text-black rounded-full p-3 md:p-4 shadow-lg hover:scale-105 transition-transform">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+                    <button aria-label="Próximo" id="nextBtn"
+                        class="absolute right-3 md:-right-12 top-1/2 -translate-y-1/2 z-30 gold-bg text-black rounded-full p-3 md:p-4 shadow-lg hover:scale-105 transition-transform">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
 
         <div class="order-3 md:order-3 md:col-start-2">
@@ -163,7 +174,7 @@
 
     <section id="portfolio" class="py-24 bg-[#140d0c]">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16">
+            <div class="flex justify-between items-end mb-8">
                 <div>
                     <h2 class="font-cinzel text-3xl tracking-[0.3em]">Galeria</h2>
                     <p class="text-[10px] text-zinc-500 uppercase tracking-widest mt-2">Trabalhos Autorais</p>
@@ -173,28 +184,27 @@
                     mais no Instagram</a>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-
-                <div class="relative aspect-square overflow-hidden group bg-zinc-900">
-                    <img src="https://jiwi7dev.com.br/zoreia.webp"
-                        class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <div class="relative aspect-square overflow-hidden group bg-zinc-900">
-                    <img src="https://jiwi7dev.com.br/IMG-8192.webp"
-                        class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <div class="relative aspect-square overflow-hidden group bg-zinc-900">
-                    <img src="https://jiwi7dev.com.br/IMG-9665.webp"
-                        class="w-full h-full object-cover  transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <div class="relative aspect-square overflow-hidden group bg-zinc-900">
-                    <img src="https://jiwi7dev.com.br/tattoo-charlie.webp"
-                        class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110">
-                </div>
+            <div class="flex gap-4 mb-6">
+                <button id="tabTatuagens" class="px-4 py-2 text-sm uppercase tracking-widest gold-text border-b-2 border-transparent hover:border-[#c5a075]">Tatuagens</button>
+                <button id="tabPiercing" class="px-4 py-2 text-sm uppercase tracking-widest text-zinc-400 hover:text-zinc-200">Piercing</button>
             </div>
+
+      
+            <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+
+            
+            <div class="mt-8 text-center">
+                <button id="showMoreBtn" class="gold-border gold-text px-6 py-3 uppercase text-xs tracking-widest hover:bg-[#c5a075] hover:text-black transition-all">Mostrar mais</button>
+            </div>
+
+        </div>
+
+
+        <div id="lightbox" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-6">
+            <button id="lightboxClose" class="absolute top-6 right-6 text-white bg-black/40 hover:bg-black/60 rounded-full p-3">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full rounded shadow-lg" />
         </div>
     </section>
 
@@ -268,12 +278,12 @@
 
         let index = 0;
 
-        setInterval(() => {
-            index = (index + 1) % imagesA.length;
+        const imgA = document.getElementById("slideA");
+        const imgB = document.getElementById("slideB");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
 
-            const imgA = document.getElementById("slideA");
-            const imgB = document.getElementById("slideB");
-
+        function updateSlides() {
             imgA.classList.add("opacity-0");
             imgB.classList.add("opacity-0");
 
@@ -283,9 +293,128 @@
 
                 imgA.classList.remove("opacity-0");
                 imgB.classList.remove("opacity-0");
-            }, 300);
+            }, 250);
+        }
 
-        }, 6000);
+        function nextSlide() {
+            index = (index + 1) % imagesA.length;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + imagesA.length) % imagesA.length;
+            updateSlides();
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'ArrowRight') nextSlide();
+        });
+
+
+        updateSlides();
+
+
+        const tattoos = [
+            'https://jiwi7dev.com.br/zoreia.webp',
+            'https://jiwi7dev.com.br/IMG-8192.webp',
+            'https://jiwi7dev.com.br/IMG-9665.webp',
+            'https://jiwi7dev.com.br/tattoo-charlie.webp',
+            'https://jiwi7dev.com.br/pintura%20foda.jpg',
+            'https://jiwi7dev.com.br/parede-loca-2.webp',
+            'https://jiwi7dev.com.br/entrada.jpg',
+            'https://jiwi7dev.com.br/saguao.jpg'
+        ];
+
+        const piercings = [
+            'https://jiwi7dev.com.br/cadeiras.jpg',
+            'https://jiwi7dev.com.br/parede-loca.webp',
+            'https://jiwi7dev.com.br/parede-loca-2.webp',
+            'https://jiwi7dev.com.br/entrada.jpg',
+            'https://jiwi7dev.com.br/saguao.jpg',
+            'https://jiwi7dev.com.br/pintura%20foda.jpg'
+        ];
+
+        let currentCategory = 'tatuagens';
+        const galleryGrid = document.getElementById('galleryGrid');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const tabT = document.getElementById('tabTatuagens');
+        const tabP = document.getElementById('tabPiercing');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function renderGallery(category, limit = 4) {
+            galleryGrid.innerHTML = '';
+            const source = category === 'tatuagens' ? tattoos : piercings;
+            const items = source.slice(0, limit);
+
+            items.forEach(src => {
+                const wrap = document.createElement('div');
+                wrap.className = 'relative aspect-square overflow-hidden group bg-zinc-900 cursor-pointer';
+
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = '';
+                img.className = 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110';
+                img.addEventListener('click', () => openLightbox(src));
+
+                wrap.appendChild(img);
+                galleryGrid.appendChild(wrap);
+            });
+
+            // mostrar ou esconder botão "Mostrar mais"
+            if (source.length > limit) {
+                showMoreBtn.style.display = 'inline-block';
+            } else {
+                showMoreBtn.style.display = 'none';
+            }
+        }
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightboxImg.src = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        function setActiveTab(category) {
+            currentCategory = category;
+            if (category === 'tatuagens') {
+                tabT.classList.add('gold-text');
+                tabT.classList.remove('text-zinc-400');
+                tabP.classList.remove('gold-text');
+                tabP.classList.add('text-zinc-400');
+            } else {
+                tabP.classList.add('gold-text');
+                tabP.classList.remove('text-zinc-400');
+                tabT.classList.remove('gold-text');
+                tabT.classList.add('text-zinc-400');
+            }
+            renderGallery(currentCategory, 4);
+        }
+
+        tabT.addEventListener('click', () => setActiveTab('tatuagens'));
+        tabP.addEventListener('click', () => setActiveTab('piercing'));
+
+        showMoreBtn.addEventListener('click', () => {
+            const source = currentCategory === 'tatuagens' ? tattoos : piercings;
+            renderGallery(currentCategory, source.length);
+            showMoreBtn.style.display = 'none';
+        });
+
+        // inicializa galerias
+        setActiveTab('tatuagens');
     </script>
 </body>
 
