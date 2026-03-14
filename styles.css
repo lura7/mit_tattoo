@@ -1,0 +1,147 @@
+
+        :root {
+            --brand-dark: #302426;
+            --brand-gold: #c5a075;
+            --brand-light: #e5d9d0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--brand-dark);
+            color: var(--brand-light);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.15em;
+        }
+
+        .gold-border {
+            border: 1px solid var(--brand-gold);
+        }
+
+        .gold-text {
+            color: var(--brand-gold);
+        }
+
+        .gold-bg {
+            background-color: var(--brand-gold);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(197, 160, 117, 0.1) 0%, rgba(26, 18, 16, 0) 70%);
+        }
+
+        /* Courses section styles */
+        .course-card {
+            background: linear-gradient(135deg, rgba(197,160,117,0.06) 0%, rgba(48,36,38,0.9) 100%);
+            border: 1px solid rgba(197,160,117,0.18);
+            transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .course-card:hover {
+            border-color: rgba(197,160,117,0.55);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(197,160,117,0.08);
+        }
+
+        .course-card:hover::before {
+            opacity: 1;
+        }
+
+        .course-icon {
+            width: 56px;
+            height: 56px;
+            border: 1px solid rgba(197,160,117,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .course-card:hover .course-icon {
+            background: rgba(197,160,117,0.12);
+        }
+
+        .courses-bg {
+            background: #1a1210;
+            position: relative;
+        }
+
+        .courses-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 10% 20%, rgba(197,160,117,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 90% 80%, rgba(197,160,117,0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .divider-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border: 1px solid rgba(197,160,117,0.4);
+            color: var(--brand-gold);
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.75rem;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .checklist li::before {
+            content: '—';
+            color: var(--brand-gold);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item[open] summary .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-arrow {
+            transition: transform 0.3s;
+            color: var(--brand-gold);
+        }
