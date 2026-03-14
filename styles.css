@@ -145,3 +145,27 @@
             transition: transform 0.3s;
             color: var(--brand-gold);
         }
+
+        @media (max-width: 640px) {
+            .courses-bg {
+                padding: 2rem 1rem;
+            }
+
+            .course-card {
+                padding: 1rem;
+            }
+
+            .course-card h3,
+            .course-card p,
+            .course-card .checklist li {
+                font-size: .85rem;
+            }
+
+            .faq-item summary {
+                font-size: .85rem;
+            }
+
+            .divider-line {
+                width: 45px;
+            }
+        }
